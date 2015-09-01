@@ -1,7 +1,9 @@
 # bindjs
 Tiny but powerful double-binding javascript library using Object.observe
 
-# How to use
+## How to use
+
+You can use BindJs by calling the global function **Bind** on a specified element of the dom.
 
 ```html
 <pre>
