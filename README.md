@@ -8,7 +8,7 @@ Minified, gzipped, this libraries only weights **1.5ko** !
 ### Browser
 
 BindJs is based on **Object.observe** method, that should be available only on ES7.<br>
-For this reason, for the moment, only Chrome and Safari can support BindJS.
+For this reason, for the moment, only **Chrome** and **Safari** can support BindJS.
 
 For more information, click [here](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/observe).
 
@@ -33,7 +33,7 @@ You can use BindJs by calling the global function **Bind** on a specified elemen
 
 ## Features
 
-All HTML binders use the **'?'** marker.
+All BindJs HTML binders use the **'?'** marker.
 
 ### Text
 
