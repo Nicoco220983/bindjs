@@ -56,7 +56,7 @@ var bindAttrs = function(dom, scopes) {
 				dom[name2] = evalAsFunction(scopes, value);
 			} else if(name.charAt(0)==='?') {
 				var name2 = name.substr(1);
-				listenObjs(scopes, value, dom, function(val, dom) { dom.setAttribute(name2, val); });
+				listenObjs(scopes, value, dom, (function(name2){ return function(val, dom){ dom.setAttribute(name2, val); }})(name2));
 			}
 		}
 		// recursive call to sons
@@ -113,12 +113,15 @@ var listenObjs = function(scopes, value, dom, callback) {
 		var obj = objs[o], numScope = findAssociatedScope(scopes, obj);
 		if(numScope!==null) {
 			var scope = scopes[numScope];
-			var lst = evalObject(scope, prependScope(obj.lst)), attr = evalObject(scope, obj.att);
-			Object.observe(lst, function(cs){ cs.forEach(function(c){
-				if(c.name===attr){
-					callback(evalFun(), dom);
+			var lst = evalObject(scope, prependScope(obj.lst));
+			var attr = evalObject(scope, obj.att);
+			Object.observe(lst, (function(attr){ return function(changes){
+				for(var c=0, len=changes.length; c<len; ++c) {
+					if(changes[c].name===attr){
+						callback(evalFun(), dom);
+					}
 				}
-			})});
+			}})(attr));
 		}
 	}
 	callback(evalFun(), dom);

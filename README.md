@@ -12,7 +12,7 @@ For this reason, for the moment, only **Chrome** and **Safari** can support Bind
 
 For more information, click [here](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object/observe).
 
-### Example:
+### Example
 
 You can use BindJs by calling the global function **Bind** on a specified element of the dom.
 
